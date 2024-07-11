@@ -1,0 +1,26 @@
+#get all books
+GET http://localhost:3001/books HTTP/1.1
+Content-Type: application/json
+
+###
+#creat book
+POST http://localhost:3001/books HTTP/1.1
+Content-Type: application/json
+
+{
+    "title":"哈哈"
+}
+
+###
+# update a book by ID
+PUT http://localhost:3001/books/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title":"六12"
+}
+
+###
+# delete a book by ID
+DELETE http://localhost:3001/books/1 HTTP/1.1
+Content-Type: application/json
