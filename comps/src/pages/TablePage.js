@@ -8,7 +8,7 @@ function TablePage() {
   ];
   const config = [
     {
-      label: "Fruit",
+      label: "Name",
       render: (fruit) => fruit.name,
       sortValue: (fruit) => fruit.name,
     },
