@@ -1,6 +1,6 @@
 **👋Hi, as a ReactJS beginer,are you bored on "Hello world" demo project?**
 
-**You know what ? 🤦‍♀️I have this point too. So come with me join ****ReactDemos**** from very easy (not a "Hello world") and interesting projects to start your learning map😉.**
+**You know what ? 🤦‍♀️I have this point too. So come with me join ****ReactDemos**** a website give you many demos build with ReactJS to help you start from very easy (not a "Hello world") and interesting projects.Do you want to begin your learning map?😉**
 
 **Don't worry about that, this really funny !**
 
@@ -23,6 +23,7 @@
 ## 🎞pics
 
 * **dynamic**render components
+
 ## ⚙comps
 
 * custom **hooks**
