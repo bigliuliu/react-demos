@@ -27,5 +27,5 @@
 
 * custom **hooks**
 * custom **React Router**
-* **useReducer**taste
+* **useReducer** taste
 * **Tailwind CSS**
