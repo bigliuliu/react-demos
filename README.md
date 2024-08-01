@@ -7,13 +7,13 @@
 # 🎯Road Map 
 
 >🧵 This part will show you React chapters  within every interesting project, ready ?
-## 💳 staticCard 
-
-* use **props**to share datas between child component and parent component
 ## 🧸 animals  
 
 * **state**have default value
 * change state value by click
+## 💳 staticCard 
+
+* use **props**to share datas between child component and parent component
 ## 📖 books
 
 * use **context**to share data
