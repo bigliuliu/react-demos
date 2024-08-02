@@ -12,11 +12,24 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
+  "main": "index.js",
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
   "scripts": {
+<<<<<<< HEAD
     "start": "webpack serve --mode development --open",
     "build": "webpack --mode production",
+=======
+    "start": "react-scripts start",
+>>>>>>> 41ec44e82b7e11645524f0e300f91b200141749a
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build": "webpack",
+    "dev": "webpack-dev-server --open"
   },
   "eslintConfig": {
     "extends": [
