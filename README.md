@@ -1,32 +1,8 @@
-**👋Hi, as a ReactJS beginer,are you bored on "Hello world" demo project?**
+# React + Vite
 
-**You know what ? 🤦‍♀️I have this point too. So come with me join ****ReactDemos**** a website give you many demos build with ReactJS to help you start from very easy (not a "Hello world") and interesting projects.Do you want to begin your learning map?😉**
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-**Don't worry about that, this really funny !**
+Currently, two official plugins are available:
 
-# 🎯Road Map 
-
->🧵 This part will show you React chapters  within every interesting project, ready ?
-## 🧸 animals  
-
-* **state** have default value
-* change state value by click
-## 💳 staticCard 
-
-* use **props** to share datas between child component and parent component
-## 📖 books
-
-* use **context** to share data
-* use simple **hook** to clear code
-* **useEffect** for first component render
-* **create**,**update**, **delete** components 
-## 🎞pics
-
-* **dynamic**render components
-
-## ⚙comps
-
-* custom **hooks**
-* custom **React Router**
-* **useReducer** taste
-* **Tailwind CSS**
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
