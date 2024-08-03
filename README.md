@@ -22,7 +22,7 @@
 * **create**,**update**, **delete** components 
 ## 🎞pics
 
-* **dynamic**render components
+* **dynamic** render components
 
 ## ⚙comps
 
