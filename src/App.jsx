@@ -1,5 +1,5 @@
 import { CodeBlock, dracula } from "react-code-blocks";
-// import { useState } from "react";
+import CustomizedTimeline from "./components/Timeline";
 function App() {
   const code = `import { useState } from "react";
 function ReactDemos(){
@@ -34,16 +34,18 @@ export default ReactDemos`;
               language="javascript"
               showLineNumbers={true}
               customStyle={{
-                borderRadius: '5px',
-                boxShadow: '1px 2px 3px rgba(0,0,0,0.35)',
-                fontSize: '1.25rem',
+                borderRadius: "5px",
+                boxShadow: "1px 2px 3px rgba(0,0,0,0.35)",
+                fontSize: "1.25rem",
               }}
             />
           </div>
         </div>
       </div>
+      <CustomizedTimeline/>
     </>
   );
 }
+
 
 export default App;
