@@ -1,8 +1,21 @@
+import { useRef } from 'react';
 import { CodeBlock, dracula } from "react-code-blocks";
 import CustomizedTimeline from "./components/Timeline";
-import { FaCircle } from 'react-icons/fa';
+import { FaCircle, FaHome, FaBookOpen, FaFileContract, FaCoffee } from 'react-icons/fa';
 
 function App() {
+  const timelineRef = useRef(null);
+
+  const scrollToTimeline = (e) => {
+    e.preventDefault();
+    timelineRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToTop = (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const code = `import { useState } from "react";
 function ReactDemos(){
   const [des,setDes]= useState('')
@@ -14,7 +27,40 @@ function ReactDemos(){
 export default ReactDemos`;
   return (
     <>
-      <div className="flex flex-col md:flex-row w-screen h-screen p-4">
+      <nav className="fixed top-0 right-0 p-4 z-10 bg-gray-800 bg-opacity-90 backdrop-blur-sm rounded-bl-lg">
+        <ul className="flex space-x-4">
+          <li>
+            <a href="#" onClick={scrollToTop} className="flex items-center text-gray-300 hover:text-blue-400 transition-colors duration-200">
+              <FaHome className="mr-2" />
+              <span className="hidden sm:inline">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="#timeline" onClick={scrollToTimeline} className="flex items-center text-gray-300 hover:text-blue-400 transition-colors duration-200">
+              <FaBookOpen className="mr-2" />
+              <span className="hidden sm:inline">Collection</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" className="flex items-center text-gray-300 hover:text-blue-400 transition-colors duration-200">
+              <FaFileContract className="mr-2" />
+              <span className="hidden sm:inline">Contract</span>
+            </a>
+          </li>
+          <li>
+            <a 
+              href="https://www.buymeacoffee.com/TianaLau" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center text-gray-300 hover:text-blue-400 transition-colors duration-200"
+            >
+              <FaCoffee className="mr-2" />
+              <span className="hidden sm:inline">Buy me a coffee</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div className="flex flex-col md:flex-row w-full min-h-screen p-4 overflow-auto">
         <div className="w-full md:w-2/3 text-center m-auto">
           <h1 className="font-bold text-4xl md:text-7xl mb-4">Amazing React Demos</h1>
           <p className="text-slate-500 text-xl md:text-2xl mt-4">
@@ -25,7 +71,7 @@ export default ReactDemos`;
             start <span className="ml-2">→</span>
           </button>
         </div>
-        <div className="w-full md:w-1/3 mt-8 md:mt-0">
+        <div className="w-full md:w-1/3 mt-8 md:mt-0 flex items-center">
           <div className="w-full md:w-5/6 mx-auto bg-[#1e1e1e] rounded-lg overflow-hidden">
             <div className="flex items-center bg-[#323233] px-4 py-2">
               <FaCircle className="text-[#ff5f56] mr-2" />
@@ -42,12 +88,16 @@ export default ReactDemos`;
                 borderRadius: "0 0 5px 5px",
                 fontSize: "1rem",
                 padding: "1rem",
+                maxHeight: "60vh",
+                overflow: "auto",
               }}
             />
           </div>
         </div>
       </div>
-      <CustomizedTimeline className="mt-8"/>
+      <div ref={timelineRef} id="timeline" className="w-full min-h-screen p-4">
+        <CustomizedTimeline className="w-full h-full"/>
+      </div>
     </>
   );
 }
