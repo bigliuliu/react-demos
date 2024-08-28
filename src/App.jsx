@@ -1,10 +1,12 @@
 import { useRef } from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { CodeBlock, dracula } from "react-code-blocks";
 import CustomizedTimeline from "./components/Timeline";
-import { FaCircle, FaHome, FaBookOpen, FaFileContract, FaCoffee } from 'react-icons/fa';
+import { FaCircle, FaHome, FaBookOpen, FaCoffee } from 'react-icons/fa';
 
 function App() {
   const timelineRef = useRef(null);
+  const homeRef = useRef(null);
 
   const scrollToTimeline = (e) => {
     e.preventDefault();
@@ -13,7 +15,7 @@ function App() {
 
   const scrollToTop = (e) => {
     e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    homeRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const code = `import { useState } from "react";
@@ -25,12 +27,13 @@ function ReactDemos(){
   return (<div>{des}<div>)
 }
 export default ReactDemos`;
+
   return (
     <>
       <nav className="fixed top-0 right-0 p-4 z-10 bg-gray-800 bg-opacity-90 backdrop-blur-sm rounded-bl-lg">
         <ul className="flex space-x-4">
           <li>
-            <a href="#" onClick={scrollToTop} className="flex items-center text-gray-300 hover:text-blue-400 transition-colors duration-200">
+            <a href="#home" onClick={scrollToTop} className="flex items-center text-gray-300 hover:text-blue-400 transition-colors duration-200">
               <FaHome className="mr-2" />
               <span className="hidden sm:inline">Home</span>
             </a>
@@ -39,12 +42,6 @@ export default ReactDemos`;
             <a href="#timeline" onClick={scrollToTimeline} className="flex items-center text-gray-300 hover:text-blue-400 transition-colors duration-200">
               <FaBookOpen className="mr-2" />
               <span className="hidden sm:inline">Collection</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" className="flex items-center text-gray-300 hover:text-blue-400 transition-colors duration-200">
-              <FaFileContract className="mr-2" />
-              <span className="hidden sm:inline">Contract</span>
             </a>
           </li>
           <li>
@@ -60,7 +57,8 @@ export default ReactDemos`;
           </li>
         </ul>
       </nav>
-      <div className="flex flex-col md:flex-row w-full min-h-screen p-4 overflow-auto">
+
+      <div ref={homeRef} id="home" className="flex flex-col md:flex-row w-full min-h-screen p-4 overflow-auto">
         <div className="w-full md:w-2/3 text-center m-auto">
           <h1 className="font-bold text-4xl md:text-7xl mb-4">Amazing React Demos</h1>
           <p className="text-slate-500 text-xl md:text-2xl mt-4">
