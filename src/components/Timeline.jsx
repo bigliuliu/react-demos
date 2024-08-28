@@ -5,150 +5,79 @@ import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import TimelineDot from "@mui/lab/TimelineDot";
-import FastfoodIcon from "@mui/icons-material/Fastfood";
-import LaptopMacIcon from "@mui/icons-material/LaptopMac";
-import HotelIcon from "@mui/icons-material/Hotel";
-import RepeatIcon from "@mui/icons-material/Repeat";
+import {  FaCreditCard, FaBook, FaImage, FaCogs } from 'react-icons/fa';
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 
+const iconMap = {
+  "🧸 animals": FaCreditCard,
+  "💳 staticCard": FaCreditCard,
+  "📖 books": FaBook,
+  "🎞pics": FaImage,
+  "⚙comps": FaCogs,
+};
+
 export default function CustomizedTimeline() {
-  const [roadMap, setRoadMap] = useState([
+  const [roadMap] = useState([
     {
       title: "🧸 animals",
       highlight: "state",
-      description: " state have default value can be changed by click events",
+      description: "State have default value can be changed by click events",
     },
     {
       title: "💳 staticCard",
       highlight: "props",
-      description:
-        "use props to share datas between component and its children components",
+      description: "Use props to share data between component and its children components",
     },
     {
       title: "📖 books",
       highlight: "context & hook",
-      description:
-        "usecontext() to share data, react hook useEffect() for components render",
+      description: "useContext() to share data, react hook useEffect() for components render",
     },
     {
       title: "🎞pics",
       highlight: "dynamic",
-      description: "dynamic render components",
+      description: "Dynamic render components",
     },
     {
       title: "⚙comps",
       highlight: "custom hooks",
-      description:
-        "custom a React Router component by useReducer and taste Tailwind CSS",
+      description: "Custom a React Router component by useReducer and taste Tailwind CSS",
     },
   ]);
-  const renderTimeItem = roadMap.map((item, index) => {
-    return (
-      <TimelineItem key={index}>
-        <TimelineOppositeContent
-          sx={{ m: "auto 0" }}
-          align="right"
-          variant="body2"
-        >
-          {item.title}
-        </TimelineOppositeContent>
-        <TimelineSeparator>
-          <TimelineConnector />
-          <TimelineDot>
-            <FastfoodIcon />
-          </TimelineDot>
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent sx={{ py: "12px", px: 2 }}>
-          <Typography variant="h6" component="span">
-            {item.highlight}
-          </Typography>
-          <Typography>{item.description}</Typography>
-        </TimelineContent>
-      </TimelineItem>
-    );
-  });
+
   return (
-    <>
-      {/* <Timeline position="alternate">
-        <TimelineItem>
-          <TimelineOppositeContent
-            sx={{ m: "auto 0" }}
-            align="right"
-            variant="body2"
-            color="text.secondary"
-          >
-            9:30 am
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineConnector />
-            <TimelineDot>
-              <FastfoodIcon />
-            </TimelineDot>
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent sx={{ py: "12px", px: 2 }}>
-            <Typography variant="h6" component="span">
-              Eat
-            </Typography>
-            <Typography>Because you need strength</Typography>
-          </TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-          <TimelineOppositeContent
-            sx={{ m: "auto 0" }}
-            variant="body2"
-            color="text.secondary"
-          >
-            10:00 am
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineConnector />
-            <TimelineDot color="primary">
-              <LaptopMacIcon />
-            </TimelineDot>
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent sx={{ py: "12px", px: 2 }}>
-            <Typography variant="h6" component="span">
-              Code
-            </Typography>
-            <Typography>Because it&apos;s awesome!</Typography>
-          </TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-          <TimelineSeparator>
-            <TimelineConnector />
-            <TimelineDot color="primary" variant="outlined">
-              <HotelIcon />
-            </TimelineDot>
-            <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
-          </TimelineSeparator>
-          <TimelineContent sx={{ py: "12px", px: 2 }}>
-            <Typography variant="h6" component="span">
-              Sleep
-            </Typography>
-            <Typography>Because you need rest</Typography>
-          </TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-          <TimelineSeparator>
-            <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
-            <TimelineDot color="secondary">
-              <RepeatIcon />
-            </TimelineDot>
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent sx={{ py: "12px", px: 2 }}>
-            <Typography variant="h6" component="span">
-              Repeat
-            </Typography>
-            <Typography>Because this is the life you love!</Typography>
-          </TimelineContent>
-        </TimelineItem>
-      </Timeline> */}
-      <Timeline className="text-white">{renderTimeItem}</Timeline>
-    </>
+    <Timeline position="alternate" className="text-white">
+      {roadMap.map((item, index) => {
+        const Icon = iconMap[item.title] || FaCogs;
+        return (
+          <TimelineItem key={index}>
+            <TimelineOppositeContent
+              sx={{ m: "auto 0" }}
+              align={index % 2 === 0 ? "right" : "left"}
+              variant="body2"
+              className="text-gray-300 text-xl font-semibold"
+            >
+              {item.title}
+            </TimelineOppositeContent>
+            <TimelineSeparator>
+              <TimelineConnector className="bg-blue-400" />
+              <TimelineDot className="bg-blue-500 p-3">
+                <Icon className="text-white text-3xl" />
+              </TimelineDot>
+              <TimelineConnector className="bg-blue-400" />
+            </TimelineSeparator>
+            <TimelineContent sx={{ py: "12px", px: 2 }}>
+              <Typography variant="h5" component="span" className="font-bold text-blue-300">
+                {item.highlight}
+              </Typography>
+              <Typography className="text-gray-300 mt-2 text-lg">
+                {item.description}
+              </Typography>
+            </TimelineContent>
+          </TimelineItem>
+        );
+      })}
+    </Timeline>
   );
 }

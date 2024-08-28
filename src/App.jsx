@@ -94,7 +94,7 @@ export default ReactDemos`;
         </div>
       </div>
       <div ref={timelineRef} id="timeline" className="w-full min-h-screen p-4">
-        <CustomizedTimeline className="w-full h-full"/>
+        <CustomizedTimeline className="w-full h-full text-white bg-gray-900 rounded-lg shadow-lg p-6"/>
       </div>
     </>
   );
