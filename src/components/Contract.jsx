@@ -7,8 +7,7 @@ function Contract() {
 	const [message, setMessage] = useState('');
 
 	useEffect(() => {
-		// Initialize emailjs with your public key
-		emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual Public Key
+		emailjs.init("lZo3_0SwmgDYU26LH"); // Replace with your actual Public Key
 	}, []);
 
 	const sendMail = async (e) => {
